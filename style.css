@@ -1,0 +1,147 @@
+/* google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+/* custom properties */
+:root{
+    --backgroun: #ffca27;
+    --red: #f53c37;
+    --black: ;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+body{
+    background: var(--backgroun);
+}
+
+/* content */
+.content{
+    padding: 2em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title{
+    color: white;
+    margin-bottom: 1em;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+/* game */
+.game{
+    width: 100%;
+    max-width: 800px;
+    padding: 0 2em;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    /* grid-template-rows: repeat(auto-fill, minmax(150px, 1fr)); */
+    /* grid-template-columns: repeat(4, 1fr); */
+    gap: 1em;
+
+    /* border: 1px solid black; */
+}
+
+/* card */
+.card{
+    position: relative;
+    /* width: 150px; */
+    /* height: 150px; */
+
+    background: white;
+}
+.card__back,
+.card__front{
+    height: 100%;
+    padding: 0.5em;
+}
+.card__back{
+    /* opacity: 0; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+    cursor: pointer;
+    border: 6px outset #e9312b;
+    background: var(--red);
+}
+.card__border{
+    height: 100%;
+    border: 2px dashed rgba(0, 0, 0, 0.5);
+}
+.card__wrapper-img{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card__icon{
+    color: white;
+    font-size: 4em;
+}
+.card__front{
+    background: white;
+}
+.card__img{
+    width: 100%;
+    height: 100%;
+}
+
+.show-card{
+    opacity: 0;
+}
+
+/* reset game */
+.reset-game{
+    position: absolute;
+    top: 0; left: 0;
+    bottom: 0; right: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    display: none;
+
+    background: rgba(255, 255, 255, 0.5);
+}
+.reset-game__button{
+    cursor: pointer;
+}
+.reset-game__icon{
+    font-size: 10rem;
+    color: rgb(0, 145, 255);
+}
+.reset-game__button:hover  .reset-game__icon{
+    transform: scale(1.05);
+}
+
+/* responsive design */
+/* ----------------------------------- */
+
+/* 720px */
+@media (max-width: 720px){
+    /* game */
+    .game{
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    }
+
+    /* card */
+    .card__icon{
+        font-size: 3em;
+    }
+}
+
+/* 640px */
+@media (max-width: 640px){
+    /* game */
+    .game{
+        /* grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); */
+        
+    }
+}
