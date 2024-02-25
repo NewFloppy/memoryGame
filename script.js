@@ -74,11 +74,25 @@ window.onload = _=>{
             if(!result){
                 showCard(pairs[0]);
                 showCard(pairs[1]);
+
+                pairs[0].childNodes[3].classList.remove('light-false');
+                pairs[1].childNodes[3].classList.remove('light-false');
             }
             pairs = [];
             openCard = true;
             endGame();
-        }, 500);
+        }, 700);
+    }
+
+    // animation light card
+    function addAnimation(status){
+        if(status){
+            pairs[0].childNodes[3].classList.add('light-true');
+            pairs[1].childNodes[3].classList.add('light-true');
+        }else{
+            pairs[0].childNodes[3].classList.add('light-false');
+            pairs[1].childNodes[3].classList.add('light-false');
+        }
     }
 
     let elements = document.getElementsByClassName('card');
@@ -99,7 +113,8 @@ window.onload = _=>{
                 // alert('son distintas');
                 resultPair = false;
             }
-            
+            // console.log(pairs[0].childNodes[3]);
+            addAnimation(resultPair)
             leadTime(resultPair);
         }
     }

@@ -39,19 +39,12 @@ body{
 
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    /* grid-template-rows: repeat(auto-fill, minmax(150px, 1fr)); */
-    /* grid-template-columns: repeat(4, 1fr); */
     gap: 1em;
-
-    /* border: 1px solid black; */
 }
 
 /* card */
 .card{
     position: relative;
-    /* width: 150px; */
-    /* height: 150px; */
-
     background: white;
 }
 .card__back,
@@ -60,7 +53,7 @@ body{
     padding: 0.5em;
 }
 .card__back{
-    /* opacity: 0; */
+    z-index: 100;
     position: absolute;
     top: 0;
     left: 0;
@@ -84,8 +77,40 @@ body{
     color: white;
     font-size: 4em;
 }
+
 .card__front{
+    position: relative;
     background: white;
+}
+.card__front::after{
+    content:'';
+    position: absolute;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    animation-duration: 0.7s;
+}
+.light-true::after{
+    animation-name: light-true;
+}
+.light-false::after{
+    animation-name: light-false;
+}
+
+@keyframes light-true{
+    0%,100%{
+        background: rgba(70, 255, 70, 0);
+    }
+    50%{
+        background: rgba(51, 255, 51, 0.5);
+    }
+}
+@keyframes light-false{
+    0%,100%{
+        background: rgba(255, 70, 70, 0);
+    }
+    50%{
+        background: rgba(255, 52, 52, 0.5);
+    }
 }
 .card__img{
     width: 100%;
@@ -98,6 +123,7 @@ body{
 
 /* reset game */
 .reset-game{
+    z-index: 1000;
     position: absolute;
     top: 0; left: 0;
     bottom: 0; right: 0;
